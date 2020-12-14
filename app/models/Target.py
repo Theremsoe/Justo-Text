@@ -1,8 +1,8 @@
 """Target Model."""
 
 from config.database import Model
-from orator.orm import belongs_to
-from app.models.Hit import Hit
+from orator.orm import has_many
+from orator.orm.relations import HasMany
 
 
 class Target(Model):
@@ -12,6 +12,9 @@ class Target(Model):
 
     __casts__ = {"born_date": "date"}
 
-    @belongs_to
-    def hits(self):
+    @has_many
+    def hits(self) -> HasMany:
+        """ Get the hits for the target. """
+        from app.models.Hit import Hit
+
         return Hit

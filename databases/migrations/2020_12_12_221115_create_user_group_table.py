@@ -10,6 +10,7 @@ class CreateUserGroupTable(Migration):
             table.big_increments("id")
             table.string("slug").unique()
             table.string("name")
+            table.integer("level").unsigned()
             table.text("details").nullable()
             table.timestamps()
             table.soft_deletes()
