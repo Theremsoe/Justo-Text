@@ -1,20 +1,17 @@
 """A DeleteController Module."""
 
 from masonite.request import Request
-from masonite.view import View
 from masonite.controllers import Controller
+from app.models.User import User
+from app.http.responses.user.UserResource import UserResource
 
 
 class DeleteController(Controller):
     """DeleteController Controller Class."""
 
-    def __init__(self, request: Request):
-        """DeleteController Initializer
+    def index(self, request: Request) -> UserResource:
+        user: User = User.find_or_fail(request.param("id"))
 
-        Arguments:
-            request {masonite.request.Request} -- The Masonite Request class.
-        """
-        self.request = request
+        user.delete()
 
-    def show(self, view: View):
-        pass
+        return UserResource(user)

@@ -1,20 +1,13 @@
 """A ListController Module."""
 
-from masonite.request import Request
-from masonite.view import View
 from masonite.controllers import Controller
+from masonite.request import Request
+from app.http.responses.user_status.UserStatusCollection import UserStatusCollection
+from app.models.UserStatus import UserStatus
 
 
 class ListController(Controller):
     """ListController Controller Class."""
 
-    def __init__(self, request: Request):
-        """ListController Initializer
-
-        Arguments:
-            request {masonite.request.Request} -- The Masonite Request class.
-        """
-        self.request = request
-
-    def show(self, view: View):
-        pass
+    def index(self, request: Request) -> UserStatusCollection:
+        return UserStatusCollection(UserStatus.paginate())

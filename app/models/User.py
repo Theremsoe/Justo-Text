@@ -1,13 +1,16 @@
 """User Model."""
 
 from config.database import Model
+from orator import SoftDeletes
 from masonite.helpers import password
 from orator.orm import belongs_to, belongs_to_many, has_many, mutator
 from orator.orm.relations import BelongsToMany, BelongsTo, HasMany
 
 
-class User(Model):
+class User(SoftDeletes, Model):
     """User Model."""
+
+    __dates__ = ["deleted_at"]
 
     __table__ = "USER"
 
