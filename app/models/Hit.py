@@ -3,12 +3,17 @@
 from config.database import Model
 from orator.orm import belongs_to
 from orator.orm.relations import BelongsTo
+from orator import SoftDeletes
 
 
-class Hit(Model):
+class Hit(SoftDeletes, Model):
     """Hit Model."""
 
-    __fillable__ = ["started_at", "expires_at"]
+    __table__ = "HIT"
+
+    __dates__ = ["deleted_at"]
+
+    __fillable__ = ["started_at", "expires_at", "details"]
 
     __hidden__ = [
         "user_id",

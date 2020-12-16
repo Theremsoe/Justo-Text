@@ -1,5 +1,5 @@
 from app.http.responses.resources.json.ResourceCollection import ResourceCollection
-from app.http.responses.user_status.UserStatusIdentifier import UserStatusResource
+from app.http.responses.user_status.UserStatusResource import UserStatusResource
 
 
 class UserStatusCollection(ResourceCollection):

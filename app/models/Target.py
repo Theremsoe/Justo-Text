@@ -3,10 +3,15 @@
 from config.database import Model
 from orator.orm import has_many
 from orator.orm.relations import HasMany
+from orator import SoftDeletes
 
 
-class Target(Model):
+class Target(SoftDeletes, Model):
     """Target Model."""
+
+    __table__ = "TARGET"
+
+    __dates__ = ["deleted_at"]
 
     __fillable__ = ["name", "last_name", "aka", "born_date"]
 

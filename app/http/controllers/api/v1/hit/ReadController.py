@@ -1,20 +1,13 @@
 """A ReadController Module."""
 
 from masonite.request import Request
-from masonite.view import View
+from app.models.Hit import Hit
+from app.http.responses.hit.HitResource import HitResource
 from masonite.controllers import Controller
 
 
 class ReadController(Controller):
     """ReadController Controller Class."""
 
-    def __init__(self, request: Request):
-        """ReadController Initializer
-
-        Arguments:
-            request {masonite.request.Request} -- The Masonite Request class.
-        """
-        self.request = request
-
-    def show(self, view: View):
-        pass
+    def index(self, request: Request) -> HitResource:
+        return HitResource(Hit.find_or_fail(request.param("id")))

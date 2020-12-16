@@ -3,12 +3,15 @@
 from config.database import Model
 from orator.orm import has_many
 from orator.orm.relations import HasMany
+from orator import SoftDeletes
 
 
-class HitStatus(Model):
+class HitStatus(SoftDeletes, Model):
     """HitStatus Model."""
 
     __table__ = "HIT_STATUS"
+
+    __dates__ = ["deleted_at"]
 
     __fillable__ = ["slug", "name", "details"]
 

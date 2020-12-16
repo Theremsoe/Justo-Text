@@ -1,20 +1,13 @@
 """A CreateController Module."""
 
 from masonite.request import Request
-from masonite.view import View
 from masonite.controllers import Controller
+from app.models.Hit import Hit
+from app.http.responses.hit.HitResource import HitResource
 
 
 class CreateController(Controller):
     """CreateController Controller Class."""
 
-    def __init__(self, request: Request):
-        """CreateController Initializer
-
-        Arguments:
-            request {masonite.request.Request} -- The Masonite Request class.
-        """
-        self.request = request
-
-    def show(self, view: View):
+    def index(self, request: Request):
         pass

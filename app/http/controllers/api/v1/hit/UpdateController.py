@@ -1,20 +1,15 @@
 """A UpdateController Module."""
 
 from masonite.request import Request
-from masonite.view import View
+from app.models.Hit import Hit
+from app.http.responses.hit.HitResource import HitResource
 from masonite.controllers import Controller
 
 
 class UpdateController(Controller):
     """UpdateController Controller Class."""
 
-    def __init__(self, request: Request):
-        """UpdateController Initializer
+    def index(self, request: Request) -> HitResource:
+        hit: Hit = Hit.find_or_fail(request.param("id"))
 
-        Arguments:
-            request {masonite.request.Request} -- The Masonite Request class.
-        """
-        self.request = request
-
-    def show(self, view: View):
-        pass
+        return HitResource(Hit.find_or_fail(request.param("id")))

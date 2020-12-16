@@ -3,10 +3,13 @@
 from config.database import Model
 from orator.orm import belongs_to_many
 from orator.orm.relations import BelongsToMany
+from orator import SoftDeletes
 
 
-class UserGroup(Model):
+class UserGroup(SoftDeletes, Model):
     """UserGroup Model."""
+
+    __dates__ = ["deleted_at"]
 
     __table__ = "USER_GROUP"
 

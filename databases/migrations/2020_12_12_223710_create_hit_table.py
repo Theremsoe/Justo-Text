@@ -14,6 +14,7 @@ class CreateHitTable(Migration):
             table.big_integer("target_id").unsigned()
             table.datetime("stared_at")
             table.datetime("expires_at")
+            table.text("details").nullable()
             table.timestamps()
             table.soft_deletes()
             table.foreign("user_id").references("id").on("USER")
