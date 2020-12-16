@@ -9,12 +9,13 @@ from masonite.validation import (
     confirmed,
     numeric,
 )
+from typing import List
 
 
 class CreateValidation(RuleEnclosure):
     """A CreateValidation validation enclosure class."""
 
-    def rules(self):
+    def rules(self) -> List:
         return [
             required(
                 [

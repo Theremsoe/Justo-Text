@@ -20,8 +20,8 @@ class TargetResource(JsonResource):
                 "born_data": self.when(
                     self.resource.born_data != None, str(self.resource.born_data)
                 ),
-                "created_at": self.resource.created_at,
-                "updated_at": self.resource.updated_at,
+                "created_at": str(self.resource.created_at),
+                "updated_at": str(self.resource.updated_at),
                 "deleted_at": self.when(
                     self.resource.deleted_at != None, str(self.resource.deleted_at)
                 ),

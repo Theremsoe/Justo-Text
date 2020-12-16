@@ -1,6 +1,5 @@
 """A DeleteController Module."""
 
-from masonite.request import Request
 from masonite.controllers import Controller
 from app.models.Target import Target
 from app.http.responses.target.TargetResource import TargetResource
@@ -9,8 +8,8 @@ from app.http.responses.target.TargetResource import TargetResource
 class DeleteController(Controller):
     """DeleteController Controller Class."""
 
-    def index(self, request: Request) -> TargetResource:
-        target: Target = Target.find_or_fail(request.param("id"))
+    def index(self, id: int) -> TargetResource:
+        target: Target = Target.find_or_fail(id)
 
         target.delete()
 

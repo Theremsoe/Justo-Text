@@ -9,8 +9,8 @@ from app.http.responses.target.TargetResource import TargetResource
 class UpdateController(Controller):
     """UpdateController Controller Class."""
 
-    def index(self, request: Request) -> TargetResource:
-        target: Target = Target.find_or_fail(request.param("id"))
+    def index(self, id: int, request: Request) -> TargetResource:
+        target: Target = Target.find_or_fail(id)
 
         # target.fill({})
 

@@ -9,7 +9,9 @@ from masonite.controllers import Controller
 class UpdateController(Controller):
     """UpdateController Controller Class."""
 
-    def index(self, request: Request) -> HitResource:
-        hit: Hit = Hit.find_or_fail(request.param("id"))
+    def index(self, id: int, request: Request) -> HitResource:
+        hit: Hit = Hit.find_or_fail(id)
 
-        return HitResource(Hit.find_or_fail(request.param("id")))
+        # hit.fill({})
+
+        return HitResource(hit)

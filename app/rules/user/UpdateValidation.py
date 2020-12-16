@@ -1,19 +1,24 @@
 """ A UpdateValidation validation enclosure """
 
-from masonite.validation import RuleEnclosure
+from masonite.validation import RuleEnclosure, required, numeric, string, email
+from typing import List
 
 
 class UpdateValidation(RuleEnclosure):
-    """A UpdateValidation validation enclosure class.
-    """
+    """A UpdateValidation validation enclosure class."""
 
-    def rules(self):
-        """Used to return a list of rules in order to make some validation
-        more reusable.
-        
-        Returns:
-            list -- List of rules
-        """
+    def rules(self) -> List:
         return [
-            # Rules go here
+            required(
+                [
+                    "data.attributes.name",
+                    "data.attributes.username",
+                    "data.attributes.email",
+                    "data.relationships.user_status.id",
+                ],
+                raises=True,
+            ),
+            email(["data.attributes.email"], raises=True),
+            string(["data.attributes.last_name"], raises=True),
+            numeric(["data.relationships.user_status.id"], raises=True),
         ]

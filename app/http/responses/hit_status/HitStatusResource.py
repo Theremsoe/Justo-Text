@@ -17,8 +17,8 @@ class HitStatusResource(JsonResource):
                 "slug": self.resource.slug,
                 "name": self.resource.name,
                 "details": self.resource.details,
-                "created_at": self.resource.created_at,
-                "updated_at": self.resource.updated_at,
+                "created_at": str(self.resource.created_at),
+                "updated_at": str(self.resource.updated_at),
                 "deleted_at": self.when(
                     self.resource.deleted_at != None, str(self.resource.deleted_at)
                 ),

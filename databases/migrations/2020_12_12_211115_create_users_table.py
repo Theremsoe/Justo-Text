@@ -12,6 +12,8 @@ class CreateUsersTable(Migration):
             table.string("email").unique()
             table.string("username").unique()
             table.string("password")
+            table.string("remember_token").nullable()
+            table.timestamp("verified_at").nullable()
             table.timestamps()
             table.soft_deletes()
             table.foreign("user_status_id").references("id").on("USER_STATUS")
