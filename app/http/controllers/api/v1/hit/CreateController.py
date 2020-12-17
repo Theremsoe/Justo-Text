@@ -2,8 +2,8 @@
 
 from masonite.request import Request
 from masonite.controllers import Controller
-from app.models.Hit import Hit
-from app.http.responses.hit.HitResource import HitResource
+from app.models import Hit
+from app.http.resources.hit.HitResource import HitResource
 
 
 class CreateController(Controller):

@@ -4,7 +4,7 @@ from masonite.request import Request
 from masonite.auth import Auth
 from masonite.controllers import Controller
 from app.rules.authentication.IssueValidation import IssueValidation
-from app.http.responses.user.UserResource import UserResource
+from app.http.resources.user.UserResource import UserResource
 from masonite.response import Response
 
 

@@ -2,8 +2,8 @@
 
 from masonite.request import Request
 from masonite.controllers import Controller
-from app.models.Target import Target
-from app.http.responses.target.TargetResource import TargetResource
+from app.models import Target
+from app.http.resources.target.TargetResource import TargetResource
 
 
 class UpdateController(Controller):

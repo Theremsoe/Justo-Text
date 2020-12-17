@@ -2,9 +2,8 @@
 
 from masonite.request import Request
 from masonite.controllers import Controller
-from app.models.User import User
-from app.models.UserStatus import UserStatus
-from app.http.responses.user.UserResource import UserResource
+from app.models import User, UserStatus
+from app.http.resources.user.UserResource import UserResource
 from app.rules.user.UpdateValidation import UpdateValidation
 
 

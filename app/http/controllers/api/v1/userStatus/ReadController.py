@@ -1,8 +1,8 @@
 """A ReadController Module."""
 
 from masonite.controllers import Controller
-from app.models.UserStatus import UserStatus
-from app.http.responses.user_status.UserStatusResource import UserStatusResource
+from app.models import UserStatus
+from app.http.resources.user_status.UserStatusResource import UserStatusResource
 
 
 class ReadController(Controller):

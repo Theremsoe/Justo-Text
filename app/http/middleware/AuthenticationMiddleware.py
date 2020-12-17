@@ -2,6 +2,8 @@
 
 from masonite.request import Request
 from masonite.response import Response
+from app.components.json_api_schema.http.schemas import ExceptionResource
+from app.components.json_api_schema.http.exceptions import UnauthorizedHttpException
 
 
 class AuthenticationMiddleware:
@@ -19,18 +21,7 @@ class AuthenticationMiddleware:
     def before(self):
         """Run This Middleware Before The Route Executes."""
         if not self.request.user():
-            self.response.json(
-                {
-                    "errors": [
-                        {
-                            "status": "403",
-                            "title": "Forbidden",
-                            "detail": "Forbidden.",
-                        }
-                    ]
-                },
-                403,
-            )
+            raise UnauthorizedHttpException("Bearer", "An JWT token is required.")
 
     def after(self):
         """Run This Middleware After The Route Executes."""

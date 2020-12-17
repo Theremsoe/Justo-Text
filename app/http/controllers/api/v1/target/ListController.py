@@ -2,8 +2,8 @@
 
 from masonite.request import Request
 from masonite.controllers import Controller
-from app.http.responses.target.TargetCollection import TargetCollection
-from app.models.Target import Target
+from app.http.resources.target.TargetCollection import TargetCollection
+from app.models import Target
 
 
 class ListController(Controller):

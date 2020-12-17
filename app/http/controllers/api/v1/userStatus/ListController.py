@@ -2,8 +2,8 @@
 
 from masonite.controllers import Controller
 from masonite.request import Request
-from app.http.responses.user_status.UserStatusCollection import UserStatusCollection
-from app.models.UserStatus import UserStatus
+from app.http.resources.user_status.UserStatusCollection import UserStatusCollection
+from app.models import UserStatus
 
 
 class ListController(Controller):

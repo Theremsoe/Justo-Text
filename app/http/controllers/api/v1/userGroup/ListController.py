@@ -2,8 +2,8 @@
 
 from masonite.request import Request
 from masonite.controllers import Controller
-from app.models.UserGroup import UserGroup
-from app.http.responses.user_group.UserGroupCollection import UserStatusCollection
+from app.models import UserGroup
+from app.http.resources.user_group.UserGroupCollection import UserStatusCollection
 
 
 class ListController(Controller):
